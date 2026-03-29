@@ -158,5 +158,43 @@ document.addEventListener('DOMContentLoaded', () => {
       hamburger.setAttribute('aria-expanded', 'false');
     }
   });
+// ===============================
+// ACTIVE NAV LINK ON SCROLL
+// ===============================
+const sections = document.querySelectorAll("section");
+const allNavLinks = document.querySelectorAll(".nav-links a");
 
+window.addEventListener("scroll", () => {
+  let current = "";
+
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 120;
+    const sectionHeight = section.clientHeight;
+
+    if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+      current = section.getAttribute("id");
+    }
+  });
+
+  allNavLinks.forEach(link => {
+    link.classList.remove("active");
+    if (link.getAttribute("href").includes(current)) {
+      link.classList.add("active");
+    }
+  });
+});
+
+
+// ===============================
+// NAVBAR EFFECT ON SCROLL
+// ===============================
+const navbar = document.querySelector(".navbar-container");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 50) {
+    navbar.classList.add("scrolled");
+  } else {
+    navbar.classList.remove("scrolled");
+  }
+});
 });
