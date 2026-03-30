@@ -198,3 +198,57 @@ window.addEventListener("scroll", () => {
   }
 });
 });
+
+
+/* =========================
+   NAVBAR ACTIVE LINK
+========================= */
+.nav-links a.active {
+  color: #4f46e5;
+  font-weight: 600;
+}
+
+/* =========================
+   NAVBAR SCROLL EFFECT
+========================= */
+.navbar-container {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  transition: 0.3s ease;
+}
+
+.navbar-container.scrolled {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+/* =========================
+   DARK MODE SUPPORT
+========================= */
+[data-theme="dark"] .navbar-container.scrolled {
+  background: rgba(20, 20, 20, 0.85);
+}
+
+/* =========================
+   NAV LINK HOVER EFFECT
+========================= */
+.nav-links a {
+  position: relative;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -4px;
+  background: #4f46e5;
+  transition: 0.3s;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
