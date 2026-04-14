@@ -5,356 +5,152 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Muhamad Ngafifudin — Portfolio</title>
 
-  <!-- Google Font -->
+  <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-  <!-- AOS (Animate On Scroll) -->
+  <!-- AOS -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
-  <meta name="description" content="Portfolio Muhamad Ngafifudin — Mahasiswa Informatika | Web Developer Pemula | Tech Enthusiast">
 </head>
+
 <body>
-  <!-- Loader -->
-  <div id="loader" class="loader">
-    <div class="spinner"></div>
-  </div>
 
-  <!-- NAVBAR -->
-  <header class="navbar-container">
-    <nav class="navbar">
-  <a class="brand" href="#home">
-    <i class="fas fa-code"></i> Ngafifudin
-  </a>
+<!-- LOADER -->
+<div id="loader" class="loader">
+  <div class="spinner"></div>
+</div>
 
-  <button class="hamburger" id="hamburger">
-    <span></span><span></span><span></span>
-  </button>
+<!-- NAVBAR -->
+<header class="navbar-container">
+  <nav class="navbar">
+    <a class="brand" href="#home">
+      <i class="fas fa-code"></i> Ngafifudin
+    </a>
 
-  <ul class="nav-links" id="nav-links">
-    <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
-    <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
-    <li><a href="#skills"><i class="fas fa-code"></i> Skills</a></li>
-    <li><a href="#projects"><i class="fas fa-diagram-project"></i> Projects</a></li>
-    <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
-  </ul>
-
-  <div class="nav-actions">
-    <button id="theme-toggle" class="icon-btn">
-      <i class="fa-regular fa-moon" id="theme-icon"></i>
+    <button class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
     </button>
 
-    <a href="#contact" class="btn primary small">Hire Me</a>
-  </div>
-    </nav>
-    <nav class="navbar">
-      <a class="brand" href="#home">M. Ngafifudin</a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#home" data-link>Home</a></li>
+      <li><a href="#about" data-link>About</a></li>
+      <li><a href="#skills" data-link>Skills</a></li>
+      <li><a href="#projects" data-link>Projects</a></li>
+      <li><a href="#experience" data-link>Experience</a></li>
+      <li><a href="#education" data-link>Education</a></li>
+      <li><a href="#contact" data-link>Contact</a></li>
+    </ul>
 
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
+    <div class="nav-actions">
+      <button id="theme-toggle" class="icon-btn">
+        <i class="fa-regular fa-moon" id="theme-icon"></i>
       </button>
-
-      <ul class="nav-links" id="nav-links">
-        <li><a href="#home" data-link>Home</a></li>
-        <li><a href="#about" data-link>About</a></li>
-        <li><a href="#skills" data-link>Skills</a></li>
-        <li><a href="#projects" data-link>Projects</a></li>
-        <li><a href="#experience" data-link>Experience</a></li>
-        <li><a href="#education" data-link>Education</a></li>
-        <li><a href="#contact" data-link>Contact</a></li>
-      </ul>
-
-      <div class="nav-actions">
-        <button id="theme-toggle" class="icon-btn" aria-label="Toggle dark mode">
-          <i class="fa-regular fa-moon" id="theme-icon"></i>
-        </button>
-      </div>
-    </nav>
-  </header>
-
-  <!-- HERO -->
-  <main>
-    <section id="home" class="hero section">
-      <div class="container hero-grid">
-        <div class="hero-content" data-aos="fade-right">
-          <p class="greeting">Halo, saya</p>
-          <h1 class="name">Muhamad Ngafifudin</h1>
-          <h2 class="headline">
-            <span id="typewriter"></span><span class="cursor">|</span>
-          </h2>
-          <p class="lead">
-            Saya mahasiswa semester 2 yang sedang belajar dan berkembang di bidang teknologi. Fokus
-            saya adalah web development, perawatan komputer, dan eksplorasi solusi sederhana yang
-            berguna.
-          </p>
-
-          <div class="cta-group">
-            <a class="btn primary" href="#contact">Hire Me</a>
-            <a class="btn outline" href="cv.pdf" download>Download CV</a>
-          </div>
-
-          <div class="socials">
-            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="mailto:apoybang16@gmail.com" aria-label="Email"><i class="fa-regular fa-envelope"></i></a>
-          </div>
-        </div>
-
-        <div class="card visual-card">
-  <img src="file_00000000549472078cb6f31a8aacbb3f.png" alt="Foto Muhamad Ngafifudin" class="profile-img">
-
-  <div class="visual-info">
-    <p>Muhamad Ngafifudin</p>
-    <small>Web Developer</small>
-  </div>
-        </div> data-aos="fade-left">
-          <!-- Placeholder visual card -->
-          <div class="card visual-card">
-            <div class="visual-placeholder">
-              <svg width="240" height="160" viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder image">
-                <rect width="240" height="160" rx="12" fill="rgba(0,0,0,0.06)"></rect>
-                <text x="50%" y="50%" text-anchor="middle" fill="rgba(0,0,0,0.2)" dy=".35em">Photo / Project</text>
-              </svg>
-            </div>
-            <div class="visual-info">
-              <p>Website Monitoring Lab Komputer</p>
-              <small>HTML • CSS • JavaScript</small>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="section about">
-      <div class="container" data-aos="fade-up">
-        <h3 class="section-title">About Me</h3>
-        <div class="about-grid">
-          <div class="about-text">
-            <p>
-              Saya adalah mahasiswa semester 2 di Universitas Komputama Cilacap dengan minat besar di bidang teknologi dan pengembangan web.
-              Saya telah mempelajari bahasa pemrograman seperti C++, HTML, CSS, dan JavaScript. Selain itu,
-              saya juga memiliki kemampuan dalam perawatan dan perbaikan komputer, serta bertanggung jawab dalam pengelolaan dan maintenance lab komputer.
-              Saya juga memiliki pengalaman membuat website monitoring lab komputer sederhana serta menulis karya ilmiah yang telah dipublikasikan di website UNIKMA.
-              Saya terus mengembangkan kemampuan saya di bidang teknologi dan siap untuk belajar hal baru.
-            </p>
-
-            <ul class="personal-info">
-              <li><strong>Nama:</strong> Muhamad Ngafifudin</li>
-              <li><strong>NIM:</strong> 255720036</li>
-              <li><strong>Asal:</strong> Kertaharja, Cimerak, Pangandaran, Jawa Barat</li>
-              <li><strong>Pendidikan:</strong> Universitas Komputama Cilacap (Semester 2)</li>
-              <li><strong>Email:</strong> <a href="mailto:apoybang16@gmail.com">apoybang16@gmail.com</a></li>
-              <li><strong>WhatsApp:</strong> <a href="https://wa.me/6285799407464" target="_blank">085799407464</a></li>
-            </ul>
-          </div>
-
-          <div class="about-stats">
-            <div class="card" data-aos="zoom-in">
-              <h4>Quick Facts</h4>
-              <p>Berpengalaman merawat lab komputer, membuat website monitoring, dan menulis karya ilmiah.</p>
-            </div>
-            <div class="card" data-aos="zoom-in" data-aos-delay="100">
-              <h4>Tools & Workflow</h4>
-              <p>Microsoft Word, Excel, PowerPoint — dokumentasi & presentasi</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills" class="section skills">
-      <div class="container" data-aos="fade-up">
-        <h3 class="section-title">Skills</h3>
-        <div class="skills-grid">
-          <div class="skill-card" data-aos="fade-right">
-            <h4>Hard Skills</h4>
-            <div class="skill">
-              <label>C++</label>
-              <div class="progress">
-                <div class="progress-bar" data-skill="65"></div>
-              </div>
-            </div>
-            <div class="skill">
-              <label>HTML</label>
-              <div class="progress">
-                <div class="progress-bar" data-skill="90"></div>
-              </div>
-            </div>
-            <div class="skill">
-              <label>CSS</label>
-              <div class="progress">
-                <div class="progress-bar" data-skill="85"></div>
-              </div>
-            </div>
-            <div class="skill">
-              <label>JavaScript</label>
-              <div class="progress">
-                <div class="progress-bar" data-skill="70"></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="skill-card" data-aos="fade-left">
-            <h4>Tools</h4>
-            <ul class="tool-list">
-              <li><i class="fa-solid fa-file-word"></i> Microsoft Word</li>
-              <li><i class="fa-solid fa-file-excel"></i> Microsoft Excel</li>
-              <li><i class="fa-solid fa-file-powerpoint"></i> Microsoft PowerPoint</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects" class="section projects">
-      <div class="container" data-aos="fade-up">
-        <h3 class="section-title">Projects</h3>
-
-        <div class="projects-grid">
-          <article class="project-card" data-aos="flip-left">
-            <div class="project-thumb">
-              <!-- placeholder -->
-              <svg width="400" height="180" viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Project image">
-                <rect width="400" height="180" rx="10" fill="rgba(0,0,0,0.05)"></rect>
-                <text x="50%" y="50%" text-anchor="middle" fill="rgba(0,0,0,0.2)" dy=".35em">Project Image</text>
-              </svg>
-            </div>
-            <div class="project-body">
-              <h4>Website Monitoring Lab Komputer</h4>
-              <p>Sistem monitoring sederhana untuk memantau kondisi komputer dalam satu dashboard.</p>
-              <p class="tech">HTML • CSS • JavaScript</p>
-              <div class="project-links">
-                <a href="#" class="btn small">Live</a>
-                <a href="#" class="btn small outline">Source</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- placeholder for more projects -->
-          <article class="project-card placeholder" data-aos="flip-left" data-aos-delay="100">
-            <div class="project-thumb small">
-              <svg width="400" height="180" viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg">
-                <rect width="400" height="180" rx="10" fill="rgba(0,0,0,0.04)"></rect>
-              </svg>
-            </div>
-            <div class="project-body">
-              <h4>Project Lainnya</h4>
-              <p>Placeholder untuk proyek lain — tambahkan link dan screenshot di sini.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section id="experience" class="section experience">
-      <div class="container" data-aos="fade-up">
-        <h3 class="section-title">Experience</h3>
-
-        <div class="timeline">
-          <div class="timeline-item" data-aos="fade-up">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <h4>Penanggung jawab perawatan Lab Komputer</h4>
-              <p class="muted">Bertanggung jawab dalam perawatan dan pengecekan perangkat komputer di lab.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- EDUCATION -->
-    <section id="education" class="section education">
-      <div class="container" data-aos="fade-up">
-        <h3 class="section-title">Education</h3>
-        <ul class="education-list">
-          <li>
-            <h4>Universitas Komputama Cilacap</h4>
-            <p>Semester 2 — Informatika</p>
-          </li>
-          <li>
-            <h4>MA Syamsul Huda Kedungreja</h4>
-            <p>Kedungreja, Jawa Tengah</p>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ACHIEVEMENTS -->
-    <section id="achievements" class="section achievements">
-      <div class="container" data-aos="fade-up">
-        <h3 class="section-title">Achievements</h3>
-        <ul class="achieve-list">
-          <li>Penulis artikel di website UNIKMA</li>
-          <li>Memiliki karya tulis ilmiah</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section contact">
-      <div class="container" data-aos="fade-up">
-        <h3 class="section-title">Contact</h3>
-        <div class="contact-grid">
-          <div class="contact-info">
-            <div class="card">
-              <h4>Get in touch</h4>
-              <p>Email: <a href="mailto:apoybang16@gmail.com">apoybang16@gmail.com</a></p>
-              <p>WhatsApp: <a href="https://wa.me/6285799407464" target="_blank">085799407464</a></p>
-            </div>
-          </div>
-
-          <form id="contact-form" class="contact-form card" novalidate>
-            <div class="form-row">
-              <label for="name">Nama</label>
-              <input type="text" id="name" name="name" required placeholder="Nama lengkap">
-              <small class="error" id="error-name"></small>
-            </div>
-
-            <div class="form-row">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" required placeholder="email@domain.com">
-              <small class="error" id="error-email"></small>
-            </div>
-
-            <div class="form-row">
-              <label for="message">Pesan</label>
-              <textarea id="message" name="message" rows="5" required placeholder="Tulis pesan Anda..."></textarea>
-              <small class="error" id="error-message"></small>
-            </div>
-
-            <div class="form-actions">
-              <button type="submit" class="btn primary">Kirim Pesan</button>
-              <button type="reset" class="btn outline">Reset</button>
-            </div>
-
-            <div id="form-success" class="form-success" role="status" aria-live="polite"></div>
-          </form>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container footer-grid">
-      <p>© <span id="year"></span> Muhamad Ngafifudin. All rights reserved.</p>
-      <div class="footer-socials">
-        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      </div>
+      <a href="#contact" class="btn primary small">Hire Me</a>
     </div>
-  </footer>
+  </nav>
+</header>
 
-  <!-- AOS & scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  <script src="script.js" defer></script>
+<!-- MAIN -->
+<main>
+
+<!-- HERO -->
+<section id="home" class="hero section">
+  <div class="container hero-grid">
+
+    <div data-aos="fade-right">
+      <p>Halo, saya</p>
+      <h1>Muhamad Ngafifudin</h1>
+      <h2>
+        <span id="typewriter"></span><span>|</span>
+      </h2>
+
+      <p>
+        Mahasiswa informatika yang sedang belajar web development dan teknologi.
+      </p>
+
+      <a href="#contact" class="btn primary">Hire Me</a>
+    </div>
+
+    <div data-aos="fade-left">
+      <img src="file_00000000549472078cb6f31a8aacbb3f.png" style="width:200px;border-radius:12px;">
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="container" data-aos="fade-up">
+    <h3>About Me</h3>
+    <p>
+      Saya mahasiswa semester 2 yang fokus belajar web development dan teknologi.
+    </p>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="section">
+  <div class="container" data-aos="fade-up">
+    <h3>Skills</h3>
+
+    <div>
+      <p>HTML</p>
+      <div class="progress-bar" data-skill="90"></div>
+
+      <p>CSS</p>
+      <div class="progress-bar" data-skill="85"></div>
+
+      <p>JavaScript</p>
+      <div class="progress-bar" data-skill="70"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECT -->
+<section id="projects" class="section">
+  <div class="container" data-aos="fade-up">
+    <h3>Projects</h3>
+    <p>Website monitoring lab komputer.</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <div class="container" data-aos="fade-up">
+
+    <h3>Contact</h3>
+
+    <form id="contact-form">
+      <input type="text" id="name" placeholder="Nama">
+      <small id="error-name"></small>
+
+      <input type="email" id="email" placeholder="Email">
+      <small id="error-email"></small>
+
+      <textarea id="message" placeholder="Pesan"></textarea>
+      <small id="error-message"></small>
+
+      <button type="submit">Kirim</button>
+    </form>
+
+    <div id="form-success"></div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <p>© <span id="year"></span> Ngafifudin</p>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script src="script.js"></script>
+
 </body>
 </html>
