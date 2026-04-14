@@ -111,6 +111,76 @@ body{
 .project-body{padding:1rem}
 .project-links{display:flex;gap:.5rem;margin-top:.75rem}
 .tech{color:var(--muted);font-size:.95rem}
+/* =========================
+   PROJECT SECTION
+========================= */
+
+.projects {
+  padding: 80px 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+/* GRID */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+/* CARD */
+.project-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  transition: 0.3s;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+/* TEXT */
+.project-body h4 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.project-body p {
+  font-size: 14px;
+  color: #555;
+}
+
+/* TECH STACK */
+.tech {
+  margin: 10px 0;
+  font-size: 13px;
+  color: #777;
+}
+
+/* BUTTON */
+.project-links {
+  margin-top: 15px;
+}
+
+.project-links .btn {
+  margin-right: 10px;
+  font-size: 13px;
+  padding: 6px 12px;
+}
+
+/* DARK MODE SUPPORT */
+[data-theme="dark"] .project-card {
+  background: #1e1e1e;
+  color: #fff;
+}
 
 /* TIMELINE */
 .timeline{position:relative;margin-top:1rem}
