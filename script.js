@@ -1,4 +1,3 @@
-// script.js — Interactivity: loader, nav, theme, typewriter, progress animation, form validation
 document.addEventListener('DOMContentLoaded', () => {
   // Elements
   const loader = document.getElementById('loader');
@@ -9,20 +8,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const typewriterEl = document.getElementById('typewriter');
   const yearEl = document.getElementById('year');
 
-  // Hide loader after full load (also fallback)
+  // Hide loader after full load
   window.addEventListener('load', () => {
     setTimeout(() => {
       loader.style.opacity = '0';
       loader.style.pointerEvents = 'none';
       loader.style.transition = 'opacity 350ms';
-      setTimeout(()=> loader.remove(), 600);
+      setTimeout(() => loader.remove(), 600);
     }, 600);
   });
 
-  // Year in footer
+  // Year
   yearEl.textContent = new Date().getFullYear();
 
-  // Hamburger toggle
+  // Hamburger
   hamburger.addEventListener('click', () => {
     const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
     hamburger.setAttribute('aria-expanded', !expanded);
@@ -30,15 +29,15 @@ document.addEventListener('DOMContentLoaded', () => {
     hamburger.classList.toggle('open');
   });
 
-  // Close mobile nav when link clicked
+  // Close nav on click
   document.querySelectorAll('[data-link]').forEach(a => {
-    a.addEventListener('click', (e) => {
+    a.addEventListener('click', () => {
       navLinks.classList.remove('open');
       hamburger.setAttribute('aria-expanded', 'false');
     });
   });
 
-  // Theme toggle: persist in localStorage
+  // Theme
   const currentTheme = localStorage.getItem('theme') || 'light';
   setTheme(currentTheme);
 
@@ -50,14 +49,12 @@ document.addEventListener('DOMContentLoaded', () => {
   function setTheme(theme){
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
-    if(theme === 'dark'){
-      themeIcon.className = 'fa-solid fa-sun';
-    } else {
-      themeIcon.className = 'fa-regular fa-moon';
-    }
+    themeIcon.className = theme === 'dark'
+      ? 'fa-solid fa-sun'
+      : 'fa-regular fa-moon';
   }
 
-  // Typewriter effect
+  // Typewriter
   const textToType = 'Mahasiswa Informatika | Web Developer Pemula | Tech Enthusiast';
   typeWriter(typewriterEl, textToType, 40);
 
@@ -67,11 +64,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const t = setInterval(()=>{
       elem.textContent += text.charAt(i);
       i++;
-      if(i>text.length-1) clearInterval(t);
+      if(i > text.length-1) clearInterval(t);
     }, speed);
   }
 
-  // Initialize AOS
+  // AOS
   if(window.AOS) {
     AOS.init({
       duration: 800,
@@ -80,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Animate progress bars when section in view (use IntersectionObserver)
+  // Progress bars
   const progressBars = document.querySelectorAll('.progress-bar');
   const progObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -95,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   progressBars.forEach(pb => progObserver.observe(pb));
 
-  // Smooth offset for sticky navbar (adjust scroll so sections not hidden)
+  // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       const targetId = this.getAttribute('href').slice(1);
@@ -110,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Contact form validation
+  // Form validation
   const form = document.getElementById('contact-form');
   const nameInput = document.getElementById('name');
   const emailInput = document.getElementById('email');
@@ -121,23 +118,28 @@ document.addEventListener('DOMContentLoaded', () => {
   const formSuccess = document.getElementById('form-success');
 
   function validateEmail(email){
-    // simple regex for email validation
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email).toLowerCase());
   }
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     let valid = true;
-    errName.textContent = ''; errEmail.textContent = ''; errMsg.textContent = ''; formSuccess.textContent = '';
+
+    errName.textContent = '';
+    errEmail.textContent = '';
+    errMsg.textContent = '';
+    formSuccess.textContent = '';
 
     if(nameInput.value.trim().length < 2){
       errName.textContent = 'Masukkan nama yang valid.';
       valid = false;
     }
+
     if(!validateEmail(emailInput.value.trim())){
       errEmail.textContent = 'Masukkan email yang valid.';
       valid = false;
     }
+
     if(msgInput.value.trim().length < 6){
       errMsg.textContent = 'Pesan terlalu singkat.';
       valid = false;
@@ -145,12 +147,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if(!valid) return;
 
-    // Simulate send (replace with actual send logic / API)
     formSuccess.textContent = 'Pesan berhasil dikirim. Terima kasih!';
     form.reset();
   });
 
-  // Close mobile nav if clicked outside
+  // Close nav if click outside
   document.addEventListener('click', (e) => {
     const target = e.target;
     if(!navLinks.contains(target) && !hamburger.contains(target)){
@@ -158,97 +159,39 @@ document.addEventListener('DOMContentLoaded', () => {
       hamburger.setAttribute('aria-expanded', 'false');
     }
   });
-// ===============================
-// ACTIVE NAV LINK ON SCROLL
-// ===============================
-const sections = document.querySelectorAll("section");
-const allNavLinks = document.querySelectorAll(".nav-links a");
 
-window.addEventListener("scroll", () => {
-  let current = "";
+  // Active nav on scroll
+  const sections = document.querySelectorAll("section");
+  const allNavLinks = document.querySelectorAll(".nav-links a");
 
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 120;
-    const sectionHeight = section.clientHeight;
+  window.addEventListener("scroll", () => {
+    let current = "";
 
-    if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-      current = section.getAttribute("id");
-    }
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 120;
+      const sectionHeight = section.clientHeight;
+
+      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    allNavLinks.forEach(link => {
+      link.classList.remove("active");
+      if (link.getAttribute("href").includes(current)) {
+        link.classList.add("active");
+      }
+    });
   });
 
-  allNavLinks.forEach(link => {
-    link.classList.remove("active");
-    if (link.getAttribute("href").includes(current)) {
-      link.classList.add("active");
+  // Navbar scroll effect
+  const navbar = document.querySelector(".navbar-container");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+      navbar.classList.add("scrolled");
+    } else {
+      navbar.classList.remove("scrolled");
     }
   });
 });
-
-
-// ===============================
-// NAVBAR EFFECT ON SCROLL
-// ===============================
-const navbar = document.querySelector(".navbar-container");
-
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 50) {
-    navbar.classList.add("scrolled");
-  } else {
-    navbar.classList.remove("scrolled");
-  }
-});
-});
-
-
-/* =========================
-   NAVBAR ACTIVE LINK
-========================= */
-.nav-links a.active {
-  color: #4f46e5;
-  font-weight: 600;
-}
-
-/* =========================
-   NAVBAR SCROLL EFFECT
-========================= */
-.navbar-container {
-  position: sticky;
-  top: 0;
-  z-index: 999;
-  transition: 0.3s ease;
-}
-
-.navbar-container.scrolled {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-}
-
-/* =========================
-   DARK MODE SUPPORT
-========================= */
-[data-theme="dark"] .navbar-container.scrolled {
-  background: rgba(20, 20, 20, 0.85);
-}
-
-/* =========================
-   NAV LINK HOVER EFFECT
-========================= */
-.nav-links a {
-  position: relative;
-}
-
-.nav-links a::after {
-  content: "";
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  left: 0;
-  bottom: -4px;
-  background: #4f46e5;
-  transition: 0.3s;
-}
-
-.nav-links a:hover::after {
-  width: 100%;
-}
