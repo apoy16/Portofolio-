@@ -92,12 +92,105 @@ body{
 .personal-info li{padding:.25rem 0}
 
 /* SKILLS */
-.skills-grid{display:grid;grid-template-columns:1fr 320px;gap:1rem}
-.skill-card{background:var(--card);padding:1rem;border-radius:12px;box-shadow:var(--shadow)}
-.skill{margin:0.6rem 0}
-.skill label{display:block;font-weight:600;margin-bottom:.35rem}
-.progress{background:rgba(0,0,0,0.06);height:12px;border-radius:999px;overflow:hidden}
-.progress-bar{height:100%;width:0;background:linear-gradient(90deg,var(--primary),var(--accent));border-radius:999px;transition:width 900ms cubic-bezier(.2,.9,.3,1)}
+:root {
+    --primary: #6366f1;
+    --accent: #a855f7;
+    --card: rgba(255, 255, 255, 0.8);
+    --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --bg-blur: blur(12px);
+}
+
+.skills-grid {
+    display: grid;
+    /* Menggunakan minmax agar lebih fleksibel di layar tanggung */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    perspective: 1000px; /* Persiapan untuk efek 3D jika perlu */
+}
+
+.skill-card {
+    background: var(--card);
+    backdrop-filter: var(--bg-blur); /* Efek kaca modern */
+    padding: 1.5rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efek angkat saat hover */
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.skill {
+    margin-bottom: 1.2rem;
+}
+
+.skill label {
+    display: flex;
+    justify-content: space-between; /* Nama skill di kiri, persentase di kanan */
+    align-items: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    color: #1f2937;
+}
+
+/* Dot indikator kecil di sebelah label */
+.skill label::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: var(--primary);
+    border-radius: 50%;
+    margin-right: 8px;
+    display: inline-block;
+}
+
+.progress {
+    background: rgba(0, 0, 0, 0.05);
+    height: 10px; /* Sedikit lebih ramping agar elegan */
+    border-radius: 100px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    border-radius: 100px;
+    /* Animasi muncul yang lebih smooth */
+    transition: width 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+}
+
+/* Efek kilau (shimmer) pada progress bar */
+.progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    animation: shine 2s infinite;
+}
+
+@keyframes shine {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Responsive: Stack columns on mobile */
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
 
 /* Tools list */
 .tool-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:.6rem}
