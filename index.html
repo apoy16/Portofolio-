@@ -1,234 +1,75 @@
-<!doctype html>
-<html lang="id" data-theme="light">
+<!DOCTYPE html>
+<html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Muhamad Ngafifudin — Portfolio</title>
-
-  <!-- Fonts & Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <!-- AOS -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Saya | Web Developer</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<!-- LOADER -->
-<div id="loader" class="loader">
-  <div class="spinner"></div>
-</div>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#projects">Proyek</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+    </nav>
 
-<!-- NAVBAR -->
-<header class="navbar-container">
-  <nav class="navbar">
-    <a class="brand" href="#home">
-      <i class="fas fa-code"></i> Ngafifudin
-    </a>
+    <header id="home">
+        <img src="foto-profil.jpg" ...>
 
-    <button class="hamburger" id="hamburger">
-      <span></span><span></span><span></span>
-    </button>
+        <h1>Halo, Saya Muhamad Ngafifudin</h1>
+        <p>Mahasiswa & Web Developer</p>
+    </header>
 
-    <ul class="nav-links" id="nav-links">
-      <li><a href="#home" data-link>Home</a></li>
-      <li><a href="#about" data-link>About</a></li>
-      <li><a href="#skills" data-link>Skills</a></li>
-      <li><a href="#projects" data-link>Projects</a></li>
-      <li><a href="#experience" data-link>Experience</a></li>
-      <li><a href="#education" data-link>Education</a></li>
-      <li><a href="#contact" data-link>Contact</a></li>
-    </ul>
+    <section id="about">
+        <h2>Tentang Saya</h2>
+        <p>
+            Halo! Saya <strong>Muhamad Ngafifudin</strong>, mahasiswa Semester 2 Teknik Informatika di <strong>Universitas Komputama Cilacap (UNIKMA)</strong>. 
+            Saya memiliki ketertarikan besar dalam dunia pengembangan web (HTML, CSS, JavaScript) dan pemrograman C++.
+        </p>
+        <br>
+        <p>
+            Selain coding, saya dipercaya sebagai <strong>Penanggung Jawab Perawatan Lab Komputer</strong> di kampus. Saya terbiasa melakukan troubleshooting hardware, maintenance PC, serta mengoperasikan tools produktivitas seperti Microsoft Office (Excel, Word, PowerPoint) untuk pengolahan data dan presentasi ilmiah.
+        </p>
+    </section>
 
-    <div class="nav-actions">
-      <button id="theme-toggle" class="icon-btn">
-        <i class="fa-regular fa-moon" id="theme-icon"></i>
-      </button>
-      <a href="#contact" class="btn primary small">Hire Me</a>
-    </div>
-  </nav>
-</header>
+    <section id="projects">
+        <h2>Proyek & Karya</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <h3>Web Monitoring Lab Komputer</h3>
+                <p>Mengembangkan sistem sederhana untuk memantau kondisi dan inventaris perangkat di Lab Komputer UNIKMA.</p>
+                <a href="https://replit.com/@cyelaola/HTML-CSS-JS-Static-1" target="_blank" class="btn-project">Lihat Project</a>
+            </div>
 
-<!-- MAIN -->
-<main>
+            <div class="project-card">
+                <h3>Penulisan Artikel Ilmiah</h3>
+                <p>Artikel edukasi tentang bahaya Deepfake dan cara mendeteksinya di website resmi UNIKMA.</p>
+                <a href="https://unikma.ac.id/2026/02/09/hati-hati-deepfake-penipuan-suara-orang-terdekat-simak-tanda-tandanya/" target="_blank" class="btn-project">Baca Artikel</a>
+            </div>
 
-<!-- HERO -->
-<section id="home" class="hero section">
-  <div class="container hero-grid">
-
-    <div data-aos="fade-right">
-      <p>Halo, saya</p>
-      <h1>Muhamad Ngafifudin</h1>
-      <h2>
-        <span id="typewriter"></span><span>|</span>
-      </h2>
-
-      <p>
-        Saya mengembangkan sebuah aplikasi berbasis web untuk memonitor kondisi komputer di laboratorium secara real-time . Sistem ini memungkinkan admin untuk melihat status setiap perangkat, termasuk penggunaan CPU, RAM, serta aktivitas komputer secara langsung dalam satu dashboard singkatnya.
-
-Proyek ini dibuat untuk meningkatkan efisiensi pengawasan lab, sehingga tidak perlu lagi melakukan pengecekan manual satu per satu.
-      </p>
-
-      <a href="#contact" class="btn primary">Hire Me</a>
-    </div>
-
-    <div data-aos="fade-left">
-      <img src="file_00000000549472078cb6f31a8aacbb3f.png" style="width:200px;border-radius:12px;">
-    </div>
-
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about" class="section">
-  <div class="container" data-aos="fade-up">
-    <h3>About Me</h3>
-    <p>
-      Mahasiswa semester 2 yang berfokus pada pembangunan sistem web berbasis praktik. Memiliki ketertarikan kuat pada arsitektur client-server dan sistem real-time. Telah mengimplementasikan Lab Monitoring Dashboard untuk memantau performa perangkat secara fungsional dan terstruktur.
-    </p>
-  </div>
-</section>
-
-<!-- SKILLS -->
-<!-- SKILLS SECTION -->
-<section id="skills" class="section skills">
-  <div class="container" data-aos="fade-up">
-    
-    <div class="section-header">
-      <h2 class="section-title">Technical Skills</h2>
-      <p class="section-subtitle">
-        Berikut adalah kemampuan utama yang saya gunakan dalam pengembangan web modern.
-      </p>
-    </div>
-
-    <div class="skills-list">
-
-      <div class="skill-item">
-        <div class="skill-info">
-          <span>HTML</span>
-          <span>90%</span>
+            <div class="project-card">
+                <h3>Hardware Specialist</h3>
+                <p>Dokumentasi perbaikan dan perawatan rutin unit PC Lab untuk menjaga performa tetap optimal.</p>
+                <a href="https://vt.tiktok.com/ZSHvo1LxX/" target="_blank" class="btn-project">Lihat Video</a>
+            </div>
         </div>
-        <div class="progress">
-          <div class="progress-bar" data-skill="90"></div>
-        </div>
-      </div>
+    </section>
 
-      <div class="skill-item">
-        <div class="skill-info">
-          <span>CSS</span>
-          <span>85%</span>
-        </div>
-        <div class="progress">
-          <div class="progress-bar" data-skill="85"></div>
-        </div>
-      </div>
+    <section id="contact">
+        <h2>Hubungi Saya</h2>
+        <p>📍 Asal: Kertaharja, Cimerak, Pangandaran</p>
+        <p>📧 Email: <a href="mailto:apoybang16@gmail.com">apoybang16@gmail.com</a></p>
+        <p>📱 WhatsApp: <a href="https://wa.me/6285799407464">0857-9940-7464</a></p>
+    </section>
 
-      <div class="skill-item">
-        <div class="skill-info">
-          <span>JavaScript</span>
-          <span>70%</span>
-        </div>
-        <div class="progress">
-          <div class="progress-bar" data-skill="70"></div>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-
-<section id="projects" class="section projects">
-  <div class="container" data-aos="fade-up">
-
-    <div class="section-header">
-      <h2 class="section-title">Projects</h2>
-      <p class="section-subtitle">
-        Beberapa project yang telah saya kerjakan sebagai bagian dari pengembangan skill dan pengalaman real-world.
-      </p>
-    </div>
-
-    <div class="projects-grid">
-      
-      <article class="project-card">
-        <div class="project-content">
-          <div class="project-tag">Web App</div>
-          <h3 class="project-title">Lab Monitoring System</h3>
-          <p class="project-description">
-            Sistem monitoring lab komputer berbasis web untuk memantau status perangkat secara real-time dengan dashboard interaktif.
-          </p>
-          <div class="project-tech">
-            <span>HTML</span>
-            <span>CSS</span>
-            <span>JavaScript</span>
-          </div>
-          <div class="project-links">
-            <a href="https://html-css-js-static-1--cyelaola.replit.app" target="_blank" class="btn-link">Live Demo</a>
-            <a href="https://replit.com/@cyelaola/HTML-CSS-JS-Static-1" target="_blank" class="btn-link outline">Source Code</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="project-card">
-        <div class="project-content">
-          <div class="project-tag">UI/UX</div>
-          <h3 class="project-title">Interactive Dashboard UI</h3>
-          <p class="project-description">
-            Dashboard modern dengan visualisasi data menggunakan Chart.js, fokus pada user experience dan responsivitas.
-          </p>
-          <div class="project-tech">
-            <span>HTML</span>
-            <span>CSS</span>
-            <span>Chart.js</span>
-          </div>
-          <div class="project-links">
-            <a href="https://html-css-js-static-1--cyelaola.replit.app" target="_blank" class="btn-link">Live Demo</a>
-            <a href="https://replit.com/@cyelaola/HTML-CSS-JS-Static-1" target="_blank" class="btn-link outline">Source Code</a>
-          </div>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-<!-- CONTACT -->
-<section id="contact" class="section">
-  <div class="container" data-aos="fade-up">
-
-    <h3>Contact</h3>
-
-    <form id="contact-form">
-      <input type="text" id="name" placeholder="Nama">
-      <small id="error-name"></small>
-
-      <input type="email" id="email" placeholder="Email">
-      <small id="error-email"></small>
-
-      <textarea id="message" placeholder="Pesan"></textarea>
-      <small id="error-message"></small>
-
-      <button type="submit">Kirim</button>
-    </form>
-
-    <div id="form-success"></div>
-
-  </div>
-</section>
-
-</main>
-
-<!-- FOOTER -->
-<footer>
-  <p>© <span id="year"></span> Ngafifudin</p>
-</footer>
-
-<!-- SCRIPTS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-<script src="script.js"></script>
-
+    <footer>
+        <p>&copy; 2026 Muhamad Ngafifudin</p>
+        <p>Universitas Komputama Cilacap</p>
+    </footer>
+    <script src="js/script.js"></script>
 </body>
 </html>
