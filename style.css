@@ -1,564 +1,315 @@
-/* =================================================
-   1. VARIABLES & THEMES (Unified Purple-Indigo)
-   ================================================= */
-:root {
-  /* LIGHT MODE - Vibrant & Clean */
-  --bg: #f5f7ff;
-  --card: rgba(255, 255, 255, 0.8);
-  --text: #1e1b4b;
-  --muted: #4f46e5;
-  --primary: #6366f1;
-  --accent: #a855f7;
-  --shadow: 0 10px 30px rgba(99, 102, 241, 0.1);
-  --blob-1: #e0e7ff; /* Soft Blue */
-  --blob-2: #fae8ff; /* Soft Pink-Purple */
-  --border: rgba(99, 102, 241, 0.1);
+body {
+    margin: 0;
+    min-height: 100vh;
+    /* Warna dasar Midnight Black */
+    background-color: #030712; 
+    /* Efek pijar cahaya (Mesh Glow) */
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.15) 0, transparent 50%), 
+        radial-gradient(at 100% 100%, rgba(124, 58, 237, 0.15) 0, transparent 50%),
+        radial-gradient(at 50% 50%, rgba(17, 24, 39, 1) 0, transparent 100%);
+
+    background-attachment: fixed;
+    /* Pastikan warna teks Putih Terang agar kontras */
+    color: #f1f5f9; 
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
 }
 
-[data-theme="dark"] {
-  /* DARK MODE - Deep Galactic Indigo */
-  --bg: #050512;
-  --card: rgba(17, 17, 34, 0.7);
-  --text: #f1f5f9;
-  --muted: #a5b4fc;
-  --primary: #818cf8;
-  --accent: #c084fc;
-  --shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-  --blob-1: #1e1b4b; /* Deep Indigo */
-  --blob-2: #2e1065; /* Deep Purple */
-  --border: rgba(255, 255, 255, 0.05);
+/* Animasi halus agar cahaya background terasa "hidup" */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/stardust.png'); /* Efek bintik halus */
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: 0;
 }
-
-/* =================================================
-   2. GLOBAL & ANIMATED BACKGROUND
-   ================================================= */
+/* 1. Reset & Dasar */
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --primary-color: #2563eb; /* Biru Profesional */
+    --dark-color: #1e293b;
+    --light-bg: #f8fafc;
+    --text-color: #334155;
+    --transition: all 0.3s ease;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-  min-height: 100vh;
-  background-color: var(--bg);
-  color: var(--text);
-  font-family: 'Poppins', sans-serif;
-  line-height: 1.6;
-  overflow-x: hidden;
-  position: relative;
-  transition: background 0.5s ease;
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    line-height: 1.6;
 }
 
-/* Background Blobs (Animasi Cahaya Bergerak) */
-body::before, body::after {
-  content: "";
-  position: fixed;
-  width: 60vw;
-  height: 60vw;
-  border-radius: 50%;
-  filter: blur(80px);
-  z-index: -1;
-  opacity: 0.5;
-  animation: float 25s infinite alternate ease-in-out;
+/* 2. Navigasi */
+nav {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 1rem 5%;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
 }
 
-body::before {
-  background: var(--blob-1);
-  top: -15%;
-  left: -10%;
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
 }
 
-body::after {
-  background: var(--blob-2);
-  bottom: -15%;
-  right: -10%;
-  animation-delay: -12s;
+nav ul li {
+    margin: 0 20px;
 }
 
-@keyframes float {
-  0% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(10vw, 15vh) scale(1.2) rotate(10deg); }
-  100% { transform: translate(-5vw, -5vh) scale(0.9) rotate(-10deg); }
+nav ul li a {
+    text-decoration: none;
+    color: var(--dark-color);
+    font-weight: 600;
+    transition: var(--transition);
 }
 
-/* =================================================
-   3. PROJECT SECTION & CARD (Glassmorphism)
-   ================================================= */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
-  padding: 3rem 0;
+nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+/* 3. Hero Section */
+header {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    color: white;
+    text-align: center;
+    padding: 0 20px;
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* 4. Section General */
+section {
+    padding: 80px 10%;
+}
+
+section h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+section h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 4px;
+    background: var(--primary-color);
+    margin: 10px auto;
+    border-radius: 2px;
+}
+
+/* 5. Projects Grid */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
 }
 
 .project-card {
-  background: var(--card);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border-radius: 24px;
-  border: 1px solid var(--border);
-  display: flex;
-  flex-direction: column;
-  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  box-shadow: var(--shadow);
-  position: relative;
-  overflow: hidden;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: var(--transition);
+    border-bottom: 4px solid transparent;
 }
 
 .project-card:hover {
-  transform: translateY(-12px) scale(1.02);
-  border-color: var(--primary);
-  box-shadow: 0 30px 60px -10px rgba(99, 102, 241, 0.3);
+    transform: translateY(-10px);
+    border-bottom: 4px solid var(--primary-color);
 }
 
-.project-content {
-  padding: 2.2rem;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  z-index: 2;
+.project-card h3 {
+    margin-bottom: 10px;
+    color: var(--dark-color);
 }
 
-.project-tag {
-  font-size: 0.7rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  color: var(--primary);
-  letter-spacing: 1.5px;
-  margin-bottom: 0.6rem;
+/* 6. Footer */
+footer {
+    background: var(--dark-color);
+    color: white;
+    text-align: center;
+    padding: 30px;
+    margin-top: 50px;
 }
 
-.project-title {
-  font-size: 1.6rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: var(--text);
+/* 7. Responsivitas (Untuk HP) */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.2rem;
+    }
+
+    nav ul li {
+        margin: 0 10px;
+    }
+
+    section {
+        padding: 60px 5%;
+    }
 }
 
-.project-description {
-  font-size: 0.95rem;
-  color: var(--muted);
-  margin-bottom: 2rem;
-  flex-grow: 1;
+.btn-project {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 16px;
+    background-color: var(--primary-color);
+    color: white !important;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition);
 }
 
-/* Tech Stack Bubbles */
-.project-tech {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-bottom: 2rem;
+.btn-project:hover {
+    background-color: #1d4ed8; /* Biru lebih gelap saat disentuh */
+    transform: scale(1.05);
 }
 
-.project-tech span {
-  background: rgba(99, 102, 241, 0.1);
-  color: var(--primary);
-  padding: 6px 14px;
-  border-radius: 100px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  border: 1px solid var(--border);
-}
-
-/* Action Links */
-.project-links {
-  display: flex;
-  gap: 1.5rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--border);
-}
-
-.btn-link {
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 0.9rem;
-  color: var(--primary);
-  transition: 0.3s;
-}
-
-.btn-link.outline {
-  color: var(--muted);
-}
-
-.btn-link:hover {
-  letter-spacing: 0.5px;
-  transform: translateX(5px);
-}
-
-/* Penyesuaian Mobile */
-@media (max-width: 640px) {
-  .projects-grid {
-    grid-template-columns: 1fr;
-    padding: 1rem;
-  }
-}
-/* Container */
-.container{max-width:1100px;margin:0 auto;padding:2rem}
-
-/* NAVBAR */
-.navbar-container{position:sticky;top:0;z-index:50;background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.2));backdrop-filter:blur(6px);box-shadow:var(--shadow)}
-[data-theme="dark"] .navbar-container{background:linear-gradient(180deg, rgba(8,18,34,0.6), rgba(8,18,34,0.2));}
-.navbar{display:flex;align-items:center;gap:1rem;max-width:1100px;margin:0 auto;padding:0.6rem 1rem}
-.brand{font-weight:600;color:var(--text);text-decoration:none}
-.nav-links{display:flex;gap:1rem;list-style:none;margin-left:auto;padding:0}
-.nav-links a{color:var(--text);text-decoration:none;padding:0.5rem;border-radius:8px;transition:var(--transition)}
-.nav-links a:hover{background:var(--glass);color:var(--accent)}
-.nav-actions{margin-left:0.5rem;display:flex;align-items:center;gap:.5rem}
-.icon-btn{background:none;border:0;padding:.5rem;border-radius:8px;cursor:pointer;color:var(--text);font-size:1.1rem}
-.icon-btn:hover{background:var(--glass)}
-
-/* Hamburger mobile */
-.hamburger{display:none;background:none;border:0;cursor:pointer;padding:.5rem;margin-left:auto}
-.hamburger span{display:block;width:22px;height:2px;background:var(--text);margin:4px 0;border-radius:2px;transition:all .25s}
-
-/* HERO */
-.section{padding:4rem 0}
-.hero{padding-top:2.5rem;padding-bottom:3rem}
-.hero-grid{display:grid;grid-template-columns:1fr 380px;gap:2rem;align-items:center}
-.greeting{color:var(--muted);margin:0}
-.name{font-size:2.1rem;margin:0.2rem 0}
-.headline{font-size:1.05rem;color:var(--primary);margin:0.4rem 0;display:flex;align-items:center;gap:.5rem}
-.cursor{color:var(--accent);animation:blink 1s steps(1) infinite}
-@keyframes blink{50%{opacity:0}}
-.lead{color:var(--muted);max-width:55ch}
-.cta-group{margin-top:1rem;display:flex;gap:.6rem;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.6rem .9rem;border-radius:8px;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:var(--transition)}
-.btn.small{padding:.3rem .6rem;font-size:.9rem}
-.btn.primary{background:linear-gradient(90deg,var(--primary),var(--accent));color:white;box-shadow:var(--shadow)}
-.btn.outline{background:transparent;border:1px solid rgba(0,0,0,0.06);color:var(--text)}
-.socials{margin-top:1rem;display:flex;gap:.6rem}
-.socials a{color:var(--text);font-size:1.1rem}
-.visual-card{background:var(--card);padding:1rem;border-radius:12px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:.6rem;align-items:center}
-.visual-placeholder{border-radius:8px;overflow:hidden}
-
-/* ABOUT */
-.about-grid{display:grid;grid-template-columns:1fr 320px;gap:1.4rem}
-.personal-info{list-style:none;padding:0;margin-top:1rem;color:var(--muted)}
-.personal-info li{padding:.25rem 0}
-
-/* SKILLS */
-:root {
-    /* Gunakan variabel yang sudah kita buat sebelumnya agar konsisten */
-    --primary: #38bdf8;
-    --accent: #818cf8;
-    --card-dark: rgba(30, 41, 59, 0.7); /* Slate 800 transparan */
-    --border: rgba(255, 255, 255, 0.1);
-}
-
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
-    perspective: 1200px;
-}
-
-.skill-card {
-    background: var(--card-dark);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    padding: 2rem;
-    border-radius: 24px;
-    border: 1px solid var(--border);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-    position: relative;
-    overflow: hidden;
-}
-
-/* Efek Tilt & Glow saat Hover */
-.skill-card:hover {
-    transform: translateY(-10px) rotateX(5deg);
-    border-color: var(--primary);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 
-                0 0 20px rgba(56, 189, 248, 0.2);
-}
-
-/* Background Glowing Spot (Aksen cahaya di belakang kartu) */
-.skill-card::before {
-    content: '';
+/* Canvas Background */
+#particleCanvas {
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(56, 189, 248, 0.05) 0%, transparent 70%);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
     pointer-events: none;
 }
 
-.skill {
-    margin-bottom: 1.5rem;
-    position: relative;
-    z-index: 2;
-}
-
-.skill label {
+header {
+    height: 100vh;
     display: flex;
-    justify-content: space-between;
-    font-weight: 600;
-    font-size: 0.85rem;
-    letter-spacing: 0.5px;
-    margin-bottom: 0.7rem;
-    color: var(--text);
-    text-transform: uppercase;
-}
-
-/* Progress Container */
-.progress {
-    background: rgba(255, 255, 255, 0.05);
-    height: 8px; /* Lebih tipis = lebih elegan */
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    overflow: hidden;
-}
-
-.progress-bar {
-    height: 100%;
-    background: linear-gradient(90deg, var(--primary), var(--accent));
-    border-radius: 20px;
-    position: relative;
-    /* Efek Glow pada ujung bar */
-    box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
-    
-    /* Animasi saat page load */
-    animation: slideIn 1.5s ease-out forwards;
-    transform-origin: left;
-}
-
-@keyframes slideIn {
-    from { transform: scaleX(0); }
-    to { transform: scaleX(1); }
-}
-
-/* List Tools (Bagian Bawah) */
-.tool-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Bagi dua kolom agar ringkas */
-    gap: 0.8rem;
-    margin-top: 1rem;
-    border-top: 1px solid var(--border);
-    padding-top: 1.5rem;
-}
-
-.tool-list li {
-    font-size: 0.8rem;
-    color: var(--muted);
-    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    gap: 8px;
-    transition: 0.3s;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+    position: relative;
+    /* Warna Dasar Biru Gelap */
+    background-color: #0f172a;
+    /* Efek Cahaya Bergerak */
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.3) 0, transparent 50%), 
+        radial-gradient(at 50% 0%, rgba(29, 78, 216, 0.3) 0, transparent 50%), 
+        radial-gradient(at 100% 0%, rgba(30, 58, 138, 0.3) 0, transparent 50%);
+    animation: meshMovement 10s ease infinite alternate;
 }
 
-.tool-list li:hover {
-    color: var(--primary);
-    transform: translateX(5px);
+/* Animasi supaya cahayanya goyang pelan */
+@keyframes meshMovement {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
 }
 
-/* Icon kecil untuk list */
-.tool-list li::before {
-    content: '→';
-    font-size: 10px;
-    color: var(--primary);
+header h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    /* Efek teks mengkilap */
+    background: linear-gradient(to bottom, #ffffff 30%, #94a3b8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
 }
-
-/* PROJECTS */
-/* =================================================
-   1. VARIABLES & THEMES (Unified)
-   ================================================= */
-:root {
-  /* LIGHT MODE - Soft & Clean Purple */
-  --bg: #f8f9ff;
-  --card: #ffffff;
-  --text: #1e1b4b;        /* Deep Indigo (sangat jelas) */
-  --muted: #4f46e5;       /* Indigo medium */
-  --primary: #6366f1;
-  --accent: #a855f7;
-  --glass: rgba(255, 255, 255, 0.7);
-  --shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.1);
-  --border: rgba(99, 102, 241, 0.1);
-}
-
-[data-theme="dark"] {
-  /* DARK MODE - Deep Midnight Royal */
-  --bg: #070714;          /* Hampir Hitam tapi Ungu Tua */
-  --card: #111122;        /* Lebih terang dari BG */
-  --text: #eef2ff;        /* Putih kebiruan */
-  --muted: #a5b4fc;       /* Soft Lavender */
-  --primary: #818cf8;
-  --accent: #c084fc;
-  --glass: rgba(17, 17, 34, 0.8);
-  --shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-  --border: rgba(255, 255, 255, 0.05);
-}
-
-/* =================================================
-   2. GLOBAL RESET & BODY (Optimized)
-   ================================================= */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  min-height: 100vh;
-  background-color: var(--bg);
-  color: var(--text);
-  font-family: 'Poppins', sans-serif;
-  line-height: 1.6;
-  transition: all 0.3s ease;
-  /* Subtle Background Glow */
-  background-image: 
-    radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.08) 0px, transparent 40%),
-    radial-gradient(at 100% 100%, rgba(168, 85, 247, 0.08) 0px, transparent 40%);
-}
-
-/* =================================================
-   3. PROJECT CARD (The Pro Look)
-   ================================================= */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
-  padding: 2rem 0;
-}
-
+/* Glassmorphism untuk Project Card */
 .project-card {
-  background: var(--card);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-radius: 24px;
-  border: 1px solid var(--border);
-  display: flex;
-  flex-direction: column;
-  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  box-shadow: var(--shadow);
-  overflow: hidden;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px); /* Efek blur kaca */
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
 }
 
 .project-card:hover {
-  transform: translateY(-12px) scale(1.02);
-  border-color: var(--primary);
-  box-shadow: 0 30px 60px -15px rgba(99, 102, 241, 0.3);
+    transform: translateY(-10px);
+    border-bottom: 4px solid var(--primary-color);
+    /* Tambahan efek glowing halus */
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);
 }
 
-.project-content {
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
+.project-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #e2e8f0;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
 }
 
-.project-tag {
-  font-size: 0.7rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  color: var(--primary);
-  letter-spacing: 1.5px;
-  margin-bottom: 0.5rem;
+.project-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+    transition: 0.5s;
 }
 
-.project-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: var(--text);
+.project-card:hover::before {
+    left: 100%;
 }
 
-.project-description {
-  font-size: 0.95rem;
-  color: var(--muted);
-  margin-bottom: 2rem;
-  flex-grow: 1;
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
-/* Tech Pills */
-.project-tech {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-bottom: 2rem;
+/* --- Gaya Foto Profil --- */
+.profile-img {
+    width: 150px;       /* Ukuran lebar foto */
+    height: 150px;      /* Ukuran tinggi foto (harus sama biar bulat sempurna) */
+    object-fit: cover;  /* Supaya foto nggak gepeng kalau skalanya beda */
+    border-radius: 50%; /* Ini yang bikin fotonya jadi BULAT */
+    border: 4px solid rgba(255, 255, 255, 0.5); /* Bingkai putih transparan */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3); /* Bayangan biar fotonya "angkat" */
+    margin-bottom: 20px; /* Jarak foto ke tulisan nama di bawahnya */
+    transition: transform 0.3s ease; /* Efek pas kursor nempel */
+    z-index: 10;        /* Pastikan foto ada di depan background */
 }
 
-.project-tech span {
-  background: rgba(99, 102, 241, 0.1);
-  color: var(--primary);
-  padding: 6px 14px;
-  border-radius: 100px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  border: 1px solid var(--border);
+/* Efek sedikit membesar saat kursor nempel */
+.profile-img:hover {
+    transform: scale(1.05);
+    border-color: var(--primary-color); /* Warna bingkai berubah jadi biru */
 }
-
-/* Links Section */
-.project-links {
-  display: flex;
-  gap: 1.5rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--border);
-}
-
-.btn-link {
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 0.9rem;
-  color: var(--primary);
-  transition: 0.3s;
-}
-
-.btn-link.outline {
-  color: var(--muted);
-  opacity: 0.7;
-}
-
-.btn-link:hover {
-  opacity: 1;
-  transform: translateX(3px);
-}
-/* TIMELINE */
-.timeline{position:relative;margin-top:1rem}
-.timeline-item{display:flex;gap:1rem;align-items:flex-start;padding:1rem 0}
-.timeline-marker{width:12px;height:12px;border-radius:50%;background:var(--primary);margin-top:.4rem;box-shadow:0 0 0 6px rgba(14,165,233,0.08)}
-.timeline-content h4{margin:0}
-.muted{color:var(--muted)}
-
-/* EDUCATION / ACHIEVEMENTS */
-.education-list{list-style:none;padding:0}
-.achieve-list{list-style:disc;padding-left:1.2rem;color:var(--muted)}
-
-/* CONTACT */
-.contact-grid{display:grid;grid-template-columns:1fr 420px;gap:1rem}
-.contact-form .form-row{margin-bottom:.8rem;display:flex;flex-direction:column}
-.contact-form label{font-weight:600;margin-bottom:.35rem}
-.contact-form input, .contact-form textarea{padding:.6rem;border-radius:8px;border:1px solid rgba(0,0,0,0.08);background:transparent;color:var(--text)}
-.error{color:#ef4444;font-size:.85rem;height:1.1rem}
-.form-success{color:green;margin-top:.6rem}
-
-/* FOOTER */
-.footer{padding:1.8rem 0;background:transparent;border-top:1px solid rgba(0,0,0,0.04)}
-.footer-grid{display:flex;justify-content:space-between;align-items:center}
-
-/* Responsive */
-@media (max-width:980px){
-  .hero-grid{grid-template-columns:1fr}
-  .about-grid{grid-template-columns:1fr}
-  .skills-grid{grid-template-columns:1fr}
-  .contact-grid{grid-template-columns:1fr}
-  .nav-links{position:fixed;inset:auto 0 0 0;background:var(--bg);flex-direction:column;padding:1.2rem;transform:translateY(-200%);transition:transform .28s;z-index:60}
-  .nav-links.open{transform:translateY(0)}
-  .hamburger{display:block}
-  .nav-links a{padding:0.8rem 0}
-  .nav-actions{display:flex}
-}
-
-/* small screens */
-@media (max-width:520px){
-  .container{padding:1rem}
-  .name{font-size:1.6rem}
-  .headline{font-size:.95rem}
-}
-
-/* tiny improvements */
-.small-muted{color:var(--muted);font-size:.9rem}
-
-/* Utility */
-.text-center{text-align:center}
